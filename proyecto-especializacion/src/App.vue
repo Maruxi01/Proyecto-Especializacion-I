@@ -1,19 +1,27 @@
+<!-- eslint-disable  -->
 <template>
   <div id="app">
-    <DetalleUsuario/>
+    <SesionesCompletadas />
+   
   </div>
 </template>
 
 <script>
-import DetalleUsuario from "./components/DetalleUsuario.vue";
+/* eslint-disable */
+import SesionesCompletadas from "./components/SesionesCompletadas.vue";
+import IniciarSesion from "./components/IniciarSesion.vue";
+import RegistrarUsuario from "./components/RegistrarUsuario.vue";
+import VerSesion from "./components/VerSesion.vue";
 
 export default {
   name: "App",
   components: {
-    DetalleUsuario,
+    SesionesCompletadas,
+    IniciarSesion,
+    RegistrarUsuario,
+    VerSesion
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
