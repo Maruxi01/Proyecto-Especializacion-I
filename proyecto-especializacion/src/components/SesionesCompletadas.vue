@@ -69,16 +69,7 @@ export default {
   },
   async created(){
     console.log("Obteniendo usuarios...")
-    await axios(url, {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-      credentials: 'same-origin',
-    }).then((respuesta) => {
+    await axios.get(url).then((respuesta) => {
       console.log(respuesta.data)
       const usuario ={
         id: respuesta.data.id,
