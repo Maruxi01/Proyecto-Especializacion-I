@@ -1,15 +1,15 @@
 <template>
   <div class="registrar">
-    <LoginBar />
+    <Navbar />
     <Registrar />
   </div>
 </template>
 
 <script>
 import Registrar from "@/components/RegistrarUsuario.vue";
-import LoginBar from "@/components/LoginBar.vue";
+import Navbar from "@/components/Navbar.vue";
 export default {
   name: "RegistrarView",
-  components: { Registrar, LoginBar },
+  components: { Registrar, Navbar },
 };
 </script>

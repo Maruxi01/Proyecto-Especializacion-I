@@ -1,16 +1,16 @@
 <template>
   <div class="sesiones">
-    <LoginBar />
+    <Navbar />
     <Sesiones />
   </div>
 </template>
 
 <script>
-import LoginBar from "@/components/LoginBar.vue";
 import Sesiones from "@/components/SesionesCompletadas.vue";
+import Navbar from "@/components/Navbar.vue";
 
 export default {
   name: "SesionesCompletadas",
-  components: { LoginBar, Sesiones },
+  components: { Sesiones, Navbar },
 };
 </script>
