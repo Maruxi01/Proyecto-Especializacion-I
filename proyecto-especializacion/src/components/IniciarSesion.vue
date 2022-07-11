@@ -2,27 +2,28 @@
 <template>
   <div class="container">
     <div class="row justify-content-md-center" id="login">
-      <div class="col-8" id="form-container">
+      <div class="col-8 me-2" id="form-container">
         <div class="header">
           <h1>Iniciar Sesión</h1>
           <p>Completa tus datos para iniciar sesión</p>
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Username:</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="username">
+          <label for="exampleFormControlInput1" class="form-label me-2">Username:</label>
+          <input type="text" class="form-control me-2" id="exampleFormControlInput1" placeholder="Username">
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Password:</label>
-          <input type="password" class="form-control" >
+          <label for="exampleFormControlTextarea1" class="form-label me-2">Password:</label>
+          <input type="password" class="form-control me-2" placeholder="Password">
         </div>
         <div class="d-flex justify-content-center">
-          <input class="btn btn-primary" type="submit" value="Iniciar Sesión">
+          <router-link to="/sesionesCompletadas" class="btn btn-primary me-2">Iniciar Sesion</router-link> 
+
         </div><br>
         <div class="d-flex justify-content-center" >
           <p>¿No tienes una cuenta?</p>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-link ">Regístrate</button>
+          <router-link to="/registrar" class="btn btn-link me-2">Regístrate</router-link> 
         </div>
         
       </div>
@@ -48,6 +49,10 @@ export default {
 }
 #form-container{
   width: 500px;
+  background-color:white ;
+  padding: 3vw;
+  border-radius:30px;
+
 }
 .header{
   text-align: center;

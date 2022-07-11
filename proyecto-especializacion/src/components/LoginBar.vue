@@ -6,7 +6,7 @@
     <a class="navbar-brand" style="color: white">Sesiones</a>
     <form class="d-flex">
       <input class="form-control me-2" type="user" placeholder="User" aria-label="User">
-      <input class="form-control me-2" type="user" placeholder="Password" aria-label="Password"></input>
+      <input class="form-control me-2" type="user" placeholder="Password" aria-label="Password">
       <button class="btn btn-primary" type="submit">Search</button>
     </form>
   </div>
@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .light-grey{
   background-color: #5383E8;
 }
