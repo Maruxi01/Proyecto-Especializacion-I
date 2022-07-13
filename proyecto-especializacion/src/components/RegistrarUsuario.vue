@@ -15,10 +15,6 @@
               <input type="text" class="form-control" placeholder="username" />
             </div>
             <div class="col mb-3">
-              <labe class="form-label">Correo:</labe>
-              <input type="text" class="form-control" placeholder="correo" />
-            </div>
-            <div class="col mb-3">
               <labe class="form-label">Clave:</labe>
               <input type="text" class="form-control" placeholder="clave" />
             </div>
@@ -34,7 +30,7 @@
           <p>¿Ya tienes una cuenta?</p>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-link ">Inicia Sesion</button>
+          <router-link to="/" class="btn btn-link me-2">Inicia Sesion</router-link> 
         </div>
         </div>
       </div>
@@ -51,7 +47,6 @@ export default {
       usuario: {
         idUsuario: "",
         username: "",
-        correo: "",
         clave: "",
         sessions: {
         },
@@ -70,5 +65,8 @@ export default {
 }
 #form-container {
   width: 500px;
+  background-color: white;
+  padding: 3vw;
+  border-radius:30px;
 }
 </style>

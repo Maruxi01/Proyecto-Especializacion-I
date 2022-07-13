@@ -3,7 +3,8 @@
   <div>
     <div class="flex-container">
       <div class="flex-child">
-        <table class="table table-dark mt-5">
+        <div class="container">
+          <table class="table table-striped mt-5">
           <thead>
             <tr>
               <th scope="col">N</th>
@@ -21,6 +22,10 @@
     </tr>
           </tbody>
         </table>
+
+          
+        </div>
+        
       </div>
       <div class="flex-child">
         <canvas id="myChart" width="400" height="400" class="mt-5"></canvas>
@@ -164,7 +169,10 @@ export default {
 .flex-container {
   display: flex;
 }
-
+.container{
+  background-color:white;
+  border-radius: 15px;
+}
 .flex-child {
   flex: 1;
   margin: 80px;

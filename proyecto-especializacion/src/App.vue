@@ -1,30 +1,27 @@
-<!-- eslint-disable  -->
 <template>
   <div id="app">
-    <LoginBar/>
-    <SesionesCompletadas />
-   
+    <!-- <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav> -->
+    <router-view />
   </div>
 </template>
 
-<script>
-/* eslint-disable */
-import SesionesCompletadas from "./components/SesionesCompletadas.vue";
-import IniciarSesion from "./components/IniciarSesion.vue";
-import RegistrarUsuario from "./components/RegistrarUsuario.vue";
-import VerSesion from "./components/VerSesion.vue";
-import LoginBar from "./components/LoginBar.vue";
+<style scoped>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* text-align: center; */
+  /* color: #ffffff; */
+}
 
-export default {
-  name: "App",
-  components: {
-    SesionesCompletadas,
-    IniciarSesion,
-    RegistrarUsuario,
-    VerSesion,
-    LoginBar
-  },
-};
-</script>
+nav {
+  padding: 30px;
+}
 
-<style></style>
+nav a {
+  font-weight: bold;
+}
+</style>
