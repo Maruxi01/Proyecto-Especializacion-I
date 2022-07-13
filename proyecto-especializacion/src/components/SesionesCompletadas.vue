@@ -1,6 +1,6 @@
 <!-- eslint-disable  -->
 <template>
-  <div >
+  <div>
     <div class="flex-container">
       <div class="flex-child">
         <table class="table table-dark mt-5">
@@ -13,38 +13,12 @@
             </tr>
           </thead>
           <tbody>
-            <!--
-      <tr v-for="(session, index) in usuarios.sessions" :key="index">
+      <tr v-for="(session, index) in sessions" :key="index">
       <th scope="row" >{{session.id}}</th>
       <td>{{session.date}}</td>
       <td>{{session.score}}</td>
       <td>{{session.duration}}</td>
     </tr>
-    -->     
-            <tr>
-              <th scoped="row">1</th>
-              <td>02/11/2021</td>
-              <td>3.9</td>
-              <td>60</td>
-            </tr>
-            <tr>
-              <th scoped="row">1</th>
-              <td>02/11/2021</td>
-              <td>3.9</td>
-              <td>60</td>
-            </tr>
-            <tr>
-              <th scoped="row">1</th>
-              <td>02/11/2021</td>
-              <td>3.9</td>
-              <td>60</td>
-            </tr>
-            <tr>
-              <th scoped="row">1</th>
-              <td>02/11/2021</td>
-              <td>3.9</td>
-              <td>60</td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -68,7 +42,7 @@ export default {
     return {
       sessions: [],
       usuario: null,
-      filteredSessions: [1,2,3,4,5,6]
+      filteredSessions: [],
     };
   },
   methods: {
@@ -77,69 +51,73 @@ export default {
         const holder = [];
         for (let i = 0; i < this.sessions.length; i++) {
           if (this.sessions[i] <= j) {
-            holder.push(this.sessions[i])
+            holder.push(this.sessions[i]);
           }
         }
-        saveMedia(holder)
+        saveMedia(holder);
       }
     },
-    saveMedia(holder){
-      let sum = 0
-      for (let i = 0; i < holder.length; i++){
-        sum+=holder[i]
+    saveMedia(holder) {
+      let sum = 0;
+      for (let i = 0; i < holder.length; i++) {
+        sum += holder[i];
       }
-      media = sum/holder.length
-      this.filteredSessions.push(media)
-    }
+      media = sum / holder.length;
+      this.filteredSessions.push(media);
+    },
   },
 
-  async created() {
-    console.log("INICIO"+this.filteredSessions)
+  async mounted() {
+    console.log("INICIO" + this.filteredSessions);
     console.log("Obteniendo usuarios...");
     await axios.get(url).then((respuesta) => {
       console.log(respuesta.data);
       for (let i = 0; i < respuesta.data.length; i++) {
-        if (respuesta.data[i].username === "bpritero") {
+        if (respuesta.data[i].username === "ldambrogio1") {
           this.sessions = respuesta.data[i].sessions;
           console.log(respuesta.data[i].username);
           console.log(this.sessions);
         }
       }
     });
-    let countSessions = 0
+    let countSessions = 0;
     for (let j = 10; j <= 60; j += 10) {
-        if(countSessions===23){
-          this.filteredSessions.push(0)
-        }
-        console.log(j)
+      if (countSessions === 10) {
+        this.filteredSessions.push(0);
+      } else {
+        console.log(j);
         let holder = [];
-        let jless=j-10
+        let jless = j - 10;
         for (let i = 0; i < this.sessions.length; i++) {
-          if (this.sessions[i].score <= j && this.sessions[i].score >= jless) {
-            holder.push(this.sessions[i].score)
+          if (
+            this.sessions[i].duration <= j &&
+            this.sessions[i].duration >= jless
+          ) {
+            holder.push(this.sessions[i].score);
           }
         }
-      let sum = 0
-      for (let i = 0; i < holder.length; i++){
-        sum+=holder[i]
-        console.log(holder[i])
+      let sum = 0;
+      for (let i = 0; i < holder.length; i++) {
+        sum += holder[i];
+        console.log(holder[i]);
         //console.log(sum)
       }
-      if(countSessions!=23){
-        let media = sum/holder.length
-      console.log(media)
-      this.filteredSessions.push(media)
-      countSessions+=holder.length
-      console.log()
-      holder = [];
-      sum = 0
-      }
       
-      }
-      console.log("FIN"+this.filteredSessions)
-  },
-
-  mounted() { 
+      if (countSessions != 10) {
+        if(holder.length!=0){
+          let media = sum / holder.length;
+        console.log(media);
+        this.filteredSessions.push(media);
+        countSessions += holder.length;
+        console.log();
+        holder = [];
+        sum = 0;
+        }else{
+          this.filteredSessions.push(0)
+        }
+      }}
+    }
+    console.log("FIN" + this.filteredSessions);
     const ctx = document.getElementById("myChart").getContext("2d");
     const myChart = new Chart(ctx, {
       type: "bar",
@@ -165,7 +143,7 @@ export default {
               "rgba(153, 102, 255, 1)",
               "rgba(255, 159, 64, 1)",
             ],
-            borderWidth: 1
+            borderWidth: 1,
           },
         ],
       },
