@@ -75,10 +75,12 @@ export default {
   async mounted() {
     console.log("INICIO" + this.filteredSessions);
     console.log("Obteniendo usuarios...");
+    let prueba =this.$route.params.username;
+    console.log("Mi username es: ",this.$route.params.username)
     await axios.get(url).then((respuesta) => {
       console.log(respuesta.data);
       for (let i = 0; i < respuesta.data.length; i++) {
-        if (respuesta.data[i].username === "ldambrogio1") {
+        if (respuesta.data[i].username === prueba) {
           this.sessions = respuesta.data[i].sessions;
           console.log(respuesta.data[i].username);
           console.log(this.sessions);

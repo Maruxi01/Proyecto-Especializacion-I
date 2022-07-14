@@ -9,14 +9,14 @@
         </div>
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label me-2">Username:</label>
-          <input type="text" class="form-control me-2" id="exampleFormControlInput1" placeholder="Username">
+          <input type="text" class="form-control me-2" id="exampleFormControlInput1" placeholder="Username" v-model="username">
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label me-2">Password:</label>
           <input type="password" class="form-control me-2" placeholder="Password">
         </div>
         <div class="d-flex justify-content-center">
-          <router-link to="/sesionesCompletadas" class="btn btn-primary me-2">Iniciar Sesion</router-link> 
+          <router-link :to="{name:'sesionesCompletas', params:{username:this.username}}" class="btn btn-primary me-2">Iniciar Sesion</router-link> 
 
         </div><br>
         <div class="d-flex justify-content-center" >
@@ -35,6 +35,11 @@
 /* eslint-disable */
 export default {
   name: "IniciarSesion",
+  data() {
+    return {
+      username:null,
+    }
+  },
   
 };
 
